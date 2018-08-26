@@ -81,5 +81,5 @@ function! s:on_listener_event(job_id, data, event)
 endfunction
 
 function! s:base16decode(data) abort
-  return silent! call system('xxd -r -p', a:data)
+  silent! return system('xxd -r -p', a:data)
 endfunction

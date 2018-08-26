@@ -30,20 +30,20 @@ endfunction
 
 function! s:start_listener() abort
   if has('nvim')
-    s:listenerJob = jobstart(
+    let s:listenerJob = jobstart(
     \ [g:rclip#executable, "listen", "-a", g:rclip#address, "-b"],
     \ {
       \ "on_stdout": function('s:on_listener_event'),
       \ "on_exit": function('s:on_listener_event'),
-    \ },
+    \ }
   \ )
   else
-    s:listenerJob = job_start(
+    let s:listenerJob = job_start(
     \ [g:rclip#executable, "listen", "-a", g:rclip#address, "-b"],
     \ {
       \ "out_cb": function('s:on_listener_message'),
       \ "exit_cb": function('s:on_listener_exit'),
-    \ },
+    \ }
   \ )
   endif
 endfunction

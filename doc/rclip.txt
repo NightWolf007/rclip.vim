@@ -34,50 +34,49 @@ INTERFACE					*rclip-interface*
 COMMANDS 					*rclip-commands*
 
 :RClipEnable					*:rclipEnable*
-		Enables |rclip|.
+	Enables |rclip|.
 
 :RClipDisable					*:rclipDisable*
-		Disables |rclip|.
+	Disables |rclip|.
 
 ------------------------------------------------------------------------------
 VARIABLES 					*rclip-variables*
 
-g:rclip#enable_at_startup          *g:rclip#enable_at_startup*
-		If the value of this variable is non-zero,
-		|rclip| is automatically enabled at startup.
+g:rclip#enable_at_startup		*g:rclip#enable_at_startup*
+	If the value of this variable is non-zero,
+	|rclip| is automatically enabled at startup.
 
-		Default: 0
+	Default: 0
 
-g:rclip#executable          *g:rclip#executable*
-    Path to rclip executable.
+g:rclip#executable			*g:rclip#executable*
+	Path to rclip executable.
 
-		Default: /usr/bin/rclip
+	Default: /usr/bin/rclip
 
-g:rclip#address          *g:rclip#address*
-    RClip server address to connect.
+g:rclip#address				*g:rclip#address*
+	RClip server address to connect.
 
-		Default: localhost:9889
+	Default: localhost:9889
 
-g:rclip#recovery_delay          *g:rclip#recovery_delay*
-    Delay inf milliseconds before restart rclip listener after it's failure.
+g:rclip#recovery_delay			*g:rclip#recovery_delay*
+	Delay inf milliseconds before restart rclip listener after it's failure.
 
-		Default: 5000
+	Default: 5000
 
 ------------------------------------------------------------------------------
 FUNCTIONS 					*rclip-functions*
 
 rclip#enable()				*rclip#enable()*
-		Enables |rclip|.  This is a function version of
-		|:RClipEnable|.
+	Enables |rclip|.  This is a function version of
+	|:RClipEnable|.
 
 rclip#disable()				*rclip#disable()*
-		Disables |rclip|.  This is a function version of
-		|:RClipDisable|.
+	Disables |rclip|.  This is a function version of
+	|:RClipDisable|.
 
 ==============================================================================
 EXAMPLES					*rclip-examples*
 >
-
   set clipboard=unnamed
   let g:rclip#enable_on_startup = 1
 ==============================================================================

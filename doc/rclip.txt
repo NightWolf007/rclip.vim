@@ -1,0 +1,84 @@
+CONTENTS					*rclip-contents*
+
+Introduction		|rclip-introduction|
+Install			|rclip-install|
+Interface		|rclip-interface|
+  Commands		  |rclip-commands|
+  Variables		  |rclip-variables|
+  Functions		  |rclip-functions|
+Examples		|rclip-examples|
+Changelog		|rclip-changelog|
+
+==============================================================================
+INTRODUCTION					*rclip-introduction*
+
+*rclip* integrates vim clipboard with RClip server.
+
+Note: To use rclip, you must set 'clipboard' to 'unnamed'.
+
+==============================================================================
+USAGE						*rclip-usage*
+
+==============================================================================
+INSTALL						*rclip-install*
+
+Note: rclip requires |TextYankPost| event and |timer_start| function.
+They was added in Vim 8 and NeoVim.
+
+Plug 'NightWolf007/rclip.vim'
+
+==============================================================================
+INTERFACE					*rclip-interface*
+
+------------------------------------------------------------------------------
+COMMANDS 					*rclip-commands*
+
+:RClipEnable					*:rclipEnable*
+		Enables |rclip|.
+
+:RClipDisable					*:rclipDisable*
+		Disables |rclip|.
+
+------------------------------------------------------------------------------
+VARIABLES 					*rclip-variables*
+
+g:rclip#enable_at_startup          *g:rclip#enable_at_startup*
+		If the value of this variable is non-zero,
+		|rclip| is automatically enabled at startup.
+
+		Default: 0
+
+g:rclip#executable          *g:rclip#executable*
+    Path to rclip executable.
+
+		Default: /usr/bin/rclip
+
+g:rclip#address          *g:rclip#address*
+    RClip server address to connect.
+
+		Default: localhost:9889
+
+g:rclip#recovery_delay          *g:rclip#recovery_delay*
+    Delay inf milliseconds before restart rclip listener after it's failure.
+
+		Default: 5000
+
+------------------------------------------------------------------------------
+FUNCTIONS 					*rclip-functions*
+
+rclip#enable()				*rclip#enable()*
+		Enables |rclip|.  This is a function version of
+		|:RClipEnable|.
+
+rclip#disable()				*rclip#disable()*
+		Disables |rclip|.  This is a function version of
+		|:RClipDisable|.
+
+==============================================================================
+EXAMPLES					*rclip-examples*
+>
+
+  set clipboard=unnamed
+  let g:rclip#enable_on_startup = 1
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:

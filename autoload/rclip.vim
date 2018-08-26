@@ -66,7 +66,7 @@ endfunction
 
 function! s:on_listener_exit(job, status)
   if s:enabled && a:status != 0
-    timer_start(g:rclip#recover_delay, 's:recover_listener', {'repeat', -1})
+    call timer_start(g:rclip#recover_delay, 's:recover_listener', {'repeat', -1})
   endif
 endfunction
 
@@ -75,7 +75,7 @@ function! s:on_listener_event(job_id, data, event)
     call setreg('*', s:base16decode(join(a:data, "")))
   elseif a:event == 'exit'
     if s:enabled && a:data != 0
-      timer_start(g:rclip#recover_delay, 's:recover_listener', {'repeat', -1})
+      call timer_start(g:rclip#recover_delay, 's:recover_listener', {'repeat', -1})
     endif
   endif
 endfunction

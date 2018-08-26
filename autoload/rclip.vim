@@ -25,7 +25,7 @@ function! rclip#disable() abort
 endfunction
 
 function! s:on_text_yank(text) abort
-  silent! call system(g:rclip#executable . 'copy -a ' . g:rclip#address, a:text)
+  silent! call system(g:rclip#executable . ' copy -a ' . g:rclip#address, a:text)
 endfunction
 
 function! s:start_listener() abort
@@ -50,9 +50,9 @@ endfunction
 
 function! s:stop_listener() abort
   if has('nvim')
-    jobstop(s:listenerJob)
+    call jobstop(s:listenerJob)
   else
-    job_stop(s:listenerJob)
+    call job_stop(s:listenerJob)
   endif
 endfunction
 

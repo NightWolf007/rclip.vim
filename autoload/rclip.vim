@@ -66,7 +66,7 @@ endfunction
 
 function! s:on_listener_exit(job, status)
   if s:enabled && a:status != 0
-    call timer_start(g:rclip#recover_delay, 's:recover_listener')
+    call timer_start(g:rclip#recover_delay, function('s:recover_listener'))
   endif
 endfunction
 
